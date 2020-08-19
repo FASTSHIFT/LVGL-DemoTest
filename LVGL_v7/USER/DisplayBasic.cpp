@@ -18,13 +18,13 @@ void Display_Init()
     screen.begin();
     screen.setRotation(1);
     screen.fillScreen(screen.Black);
-    tp_dev.init();
     
     pinMode(TFT_LED_Pin, OUTPUT);
     digitalWrite(TFT_LED_Pin, HIGH);
 
     lv_init();
-    lv_disp_init();
+    lv_port_disp_init();
+    lv_port_indev_init();
     
     lv_demo_widgets();
     //lv_demo_benchmark();

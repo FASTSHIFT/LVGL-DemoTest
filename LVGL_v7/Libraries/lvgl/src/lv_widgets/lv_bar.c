@@ -11,7 +11,7 @@
 #include "lv_bar.h"
 #if LV_USE_BAR != 0
 
-#include "../lv_core/lv_debug.h"
+#include "../lv_misc/lv_debug.h"
 #include "../lv_draw/lv_draw.h"
 #include "../lv_themes/lv_theme.h"
 #include "../lv_misc/lv_anim.h"
@@ -130,7 +130,7 @@ lv_obj_t * lv_bar_create(lv_obj_t * par, const lv_obj_t * copy)
         lv_style_list_copy(&ext->style_indic, &ext_copy->style_indic);
 
         /*Refresh the style with new signal function*/
-        lv_obj_refresh_style(bar, LV_STYLE_PROP_ALL);
+        lv_obj_refresh_style(bar, LV_OBJ_PART_ALL, LV_STYLE_PROP_ALL);
 
         lv_bar_set_value(bar, ext->cur_value, LV_ANIM_OFF);
     }
@@ -148,7 +148,7 @@ lv_obj_t * lv_bar_create(lv_obj_t * par, const lv_obj_t * copy)
  * Set a new value on the bar
  * @param bar pointer to a bar object
  * @param value new value
- * @param anim LV_ANIM_ON: set the value with an animation; LV_ANIM_OFF: change the value immediatelly
+ * @param anim LV_ANIM_ON: set the value with an animation; LV_ANIM_OFF: change the value immediately
  */
 void lv_bar_set_value(lv_obj_t * bar, int16_t value, lv_anim_enable_t anim)
 {
@@ -175,7 +175,7 @@ void lv_bar_set_value(lv_obj_t * bar, int16_t value, lv_anim_enable_t anim)
  * Set a new start value on the bar
  * @param bar pointer to a bar object
  * @param value new start value
- * @param anim LV_ANIM_ON: set the value with an animation; LV_ANIM_OFF: change the value immediatelly
+ * @param anim LV_ANIM_ON: set the value with an animation; LV_ANIM_OFF: change the value immediately
  */
 void lv_bar_set_start_value(lv_obj_t * bar, int16_t start_value, lv_anim_enable_t anim)
 {
@@ -395,7 +395,9 @@ static lv_design_res_t lv_bar_design(lv_obj_t * bar, const lv_area_t * clip_area
             lv_draw_rect_dsc_init(&draw_dsc);
             draw_dsc.bg_opa = LV_OPA_TRANSP;
             draw_dsc.pattern_opa = LV_OPA_TRANSP;
+            draw_dsc.outline_opa = LV_OPA_TRANSP;
             draw_dsc.shadow_opa = LV_OPA_TRANSP;
+            draw_dsc.value_opa = LV_OPA_TRANSP;
             lv_obj_init_draw_rect_dsc(bar, LV_OBJ_PART_MAIN, &draw_dsc);
 
             lv_draw_rect(&bar->coords, clip_area, &draw_dsc);
@@ -414,6 +416,8 @@ static void draw_bg(lv_obj_t * bar, const lv_area_t * clip_area)
         draw_dsc.border_opa = LV_OPA_TRANSP;
     }
 
+    /*value will be drawn later*/
+    draw_dsc.value_opa = LV_OPA_TRANSP;
     lv_obj_init_draw_rect_dsc(bar, LV_BAR_PART_BG, &draw_dsc);
     lv_draw_rect(&bar->coords, clip_area, &draw_dsc);
 

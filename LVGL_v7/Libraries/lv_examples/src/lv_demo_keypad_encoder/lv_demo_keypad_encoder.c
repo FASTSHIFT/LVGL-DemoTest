@@ -72,6 +72,13 @@ struct {
  *   GLOBAL FUNCTIONS
  **********************/
 
+LV_EVENT_CB_DECLARE(dd_enc)
+{
+    if(e == LV_EVENT_VALUE_CHANGED) {
+        printf("chg\n");
+    }
+}
+
 void lv_demo_keypad_encoder(void)
 {
     g = lv_group_create();
@@ -80,13 +87,13 @@ void lv_demo_keypad_encoder(void)
 #if LV_EX_KEYBOARD
     lv_indev_drv_t kb_drv;
     lv_indev_drv_init(&kb_drv);
-    kb_drv.type = LV_INDEV_TYPE_ENCODER;
+    kb_drv.type = LV_INDEV_TYPE_KEYPAD;
     kb_drv.read_cb = keyboard_read;
     lv_indev_t * kb_indev = lv_indev_drv_register(&kb_drv);
     lv_indev_set_group(kb_indev, g);
 #endif
 
-#if LV_EX_MOUSEWHEEL == 0
+#if LV_EX_MOUSEWHEEL
     lv_indev_drv_t enc_drv;
     lv_indev_drv_init(&enc_drv);
     enc_drv.type = LV_INDEV_TYPE_ENCODER;
@@ -132,6 +139,7 @@ static void selectors_create(lv_obj_t * parent)
    selector_objs.spinbox = lv_spinbox_create(parent, NULL);
 
    selector_objs.dropdown = lv_dropdown_create(parent, NULL);
+   lv_obj_set_event_cb(selector_objs.dropdown, dd_enc);
 
    selector_objs.roller = lv_roller_create(parent, NULL);
 

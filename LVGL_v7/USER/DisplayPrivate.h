@@ -14,6 +14,7 @@ extern SCREEN_CLASS screen;
 /*LittleVGL*/
 #include "lvgl/lvgl.h"
 
-void lv_disp_init();
+void lv_port_disp_init();
+void lv_port_indev_init();
 
 #endif

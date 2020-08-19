@@ -397,9 +397,9 @@
               <FilePath>..\USER\lv_port_disp.cpp</FilePath>
             </File>
             <File>
-              <FileName>lv_conf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Libraries\lv_conf.h</FilePath>
+              <FileName>lv_port_indev.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\USER\lv_port_indev.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -407,14 +407,9 @@
           <GroupName>lv_examples</GroupName>
           <Files>
             <File>
-              <FileName>lv_demo_widgets.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Libraries\lv_examples\src\lv_demo_widgets\lv_demo_widgets.c</FilePath>
-            </File>
-            <File>
-              <FileName>lv_demo_benchmark.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Libraries\lv_examples\src\lv_demo_benchmark\lv_demo_benchmark.c</FilePath>
+              <FileName>lv_ex_conf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Libraries\lv_ex_conf.h</FilePath>
             </File>
             <File>
               <FileName>img_cogwheel_alpha16.c</FileName>
@@ -442,6 +437,11 @@
               <FilePath>..\Libraries\lv_examples\assets\img_cogwheel_rgb.c</FilePath>
             </File>
             <File>
+              <FileName>img_hand.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\assets\img_hand.c</FilePath>
+            </File>
+            <File>
               <FileName>lv_font_montserrat_12_compr_az.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Libraries\lv_examples\assets\lv_font_montserrat_12_compr_az.c</FilePath>
@@ -457,29 +457,19 @@
               <FilePath>..\Libraries\lv_examples\assets\lv_font_montserrat_28_compr_az.c</FilePath>
             </File>
             <File>
-              <FileName>lv_demo_stress.c</FileName>
+              <FileName>lv_demo_benchmark.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Libraries\lv_examples\src\lv_demo_stress\lv_demo_stress.c</FilePath>
+              <FilePath>..\Libraries\lv_examples\src\lv_demo_benchmark\lv_demo_benchmark.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_demo_keypad_encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\src\lv_demo_keypad_encoder\lv_demo_keypad_encoder.c</FilePath>
             </File>
             <File>
               <FileName>lv_demo_printer.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Libraries\lv_examples\src\lv_demo_printer\lv_demo_printer.c</FilePath>
-            </File>
-            <File>
-              <FileName>lv_demo_printer_home.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Libraries\lv_examples\src\lv_demo_printer\lv_demo_printer_home.c</FilePath>
-            </File>
-            <File>
-              <FileName>lv_demo_printer_print.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Libraries\lv_examples\src\lv_demo_printer\lv_demo_printer_print.c</FilePath>
-            </File>
-            <File>
-              <FileName>lv_demo_printer_scr.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Libraries\lv_examples\src\lv_demo_printer\lv_demo_printer_scr.c</FilePath>
             </File>
             <File>
               <FileName>lv_demo_printer_theme.c</FileName>
@@ -515,6 +505,26 @@
               <FileName>lv_demo_printer_icon_wifi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Libraries\lv_examples\src\lv_demo_printer\images\lv_demo_printer_icon_wifi.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_demo_printer_img_btn_bg_1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\src\lv_demo_printer\images\lv_demo_printer_img_btn_bg_1.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_demo_printer_img_btn_bg_2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\src\lv_demo_printer\images\lv_demo_printer_img_btn_bg_2.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_demo_printer_img_btn_bg_3.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\src\lv_demo_printer\images\lv_demo_printer_img_btn_bg_3.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_demo_printer_img_btn_bg_4.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\src\lv_demo_printer\images\lv_demo_printer_img_btn_bg_4.c</FilePath>
             </File>
             <File>
               <FileName>lv_demo_printer_img_cloud.c</FileName>
@@ -587,39 +597,84 @@
               <FilePath>..\Libraries\lv_examples\src\lv_demo_printer\images\lv_demo_printer_img_wave.c</FilePath>
             </File>
             <File>
-              <FileName>lv_demo_printer_img_btn_bg.c</FileName>
+              <FileName>lv_demo_stress.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Libraries\lv_examples\src\lv_demo_printer\images\lv_demo_printer_img_btn_bg.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Libraries</GroupName>
-          <Files>
-            <File>
-              <FileName>Adafruit_GFX.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\Libraries\Adafruit_GFX_Library\Adafruit_GFX.cpp</FilePath>
+              <FilePath>..\Libraries\lv_examples\src\lv_demo_stress\lv_demo_stress.c</FilePath>
             </File>
             <File>
-              <FileName>TFT_ILI9488.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\Libraries\TFT_ILI9488\TFT_ILI9488.cpp</FilePath>
+              <FileName>lv_demo_widgets.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\src\lv_demo_widgets\lv_demo_widgets.c</FilePath>
             </File>
             <File>
-              <FileName>GT911.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\Libraries\GT911\GT911.cpp</FilePath>
+              <FileName>lv_ex_get_started_1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\src\lv_ex_get_started\lv_ex_get_started_1.c</FilePath>
             </File>
             <File>
-              <FileName>GTIIC.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\Libraries\GT911\GTIIC.cpp</FilePath>
+              <FileName>lv_ex_get_started_2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\src\lv_ex_get_started\lv_ex_get_started_2.c</FilePath>
             </File>
             <File>
-              <FileName>touch.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\Libraries\GT911\touch.cpp</FilePath>
+              <FileName>lv_ex_get_started_3.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\src\lv_ex_get_started\lv_ex_get_started_3.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_ex_style_1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\src\lv_ex_style\lv_ex_style_1.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_ex_style_2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\src\lv_ex_style\lv_ex_style_2.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_ex_style_3.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\src\lv_ex_style\lv_ex_style_3.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_ex_style_4.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\src\lv_ex_style\lv_ex_style_4.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_ex_style_5.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\src\lv_ex_style\lv_ex_style_5.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_ex_style_6.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\src\lv_ex_style\lv_ex_style_6.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_ex_style_7.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\src\lv_ex_style\lv_ex_style_7.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_ex_style_8.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\src\lv_ex_style\lv_ex_style_8.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_ex_style_9.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\src\lv_ex_style\lv_ex_style_9.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_ex_style_10.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\src\lv_ex_style\lv_ex_style_10.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_ex_style_11.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lv_examples\src\lv_ex_style\lv_ex_style_11.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -696,9 +751,9 @@
           </GroupOption>
           <Files>
             <File>
-              <FileName>lv_debug.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Libraries\lvgl\src\lv_core\lv_debug.c</FilePath>
+              <FileName>lv_conf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Libraries\lv_conf.h</FilePath>
             </File>
             <File>
               <FileName>lv_disp.c</FileName>
@@ -799,6 +854,11 @@
               <FileName>lv_font_fmt_txt.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Libraries\lvgl\src\lv_font\lv_font_fmt_txt.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_font_loader.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lvgl\src\lv_font\lv_font_loader.c</FilePath>
             </File>
             <File>
               <FileName>lv_font_montserrat_12.c</FileName>
@@ -916,11 +976,6 @@
               <FilePath>..\Libraries\lvgl\src\lv_font\lv_font_unscii_8.c</FilePath>
             </File>
             <File>
-              <FileName>lv_gpu_stm32_dma2d.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Libraries\lvgl\src\lv_gpu\lv_gpu_stm32_dma2d.c</FilePath>
-            </File>
-            <File>
               <FileName>lv_hal_disp.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Libraries\lvgl\src\lv_hal\lv_hal_disp.c</FilePath>
@@ -959,6 +1014,11 @@
               <FileName>lv_color.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Libraries\lvgl\src\lv_misc\lv_color.c</FilePath>
+            </File>
+            <File>
+              <FileName>lv_debug.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\lvgl\src\lv_misc\lv_debug.c</FilePath>
             </File>
             <File>
               <FileName>lv_fs.c</FileName>
@@ -1218,6 +1278,36 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>Libraries</GroupName>
+          <Files>
+            <File>
+              <FileName>Adafruit_GFX.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\Libraries\Adafruit_GFX_Library\Adafruit_GFX.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>TFT_ILI9488.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\Libraries\TFT_ILI9488\TFT_ILI9488.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>GT911.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\Libraries\GT911\GT911.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>GTIIC.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\Libraries\GT911\GTIIC.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>touch.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\Libraries\GT911\touch.cpp</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>ArduinoAPI</GroupName>
           <Files>
             <File>
@@ -1319,13 +1409,6 @@
         </Group>
         <Group>
           <GroupName>README</GroupName>
-          <Files>
-            <File>
-              <FileName>README.md</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\README.md</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>

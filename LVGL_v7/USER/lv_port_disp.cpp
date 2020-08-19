@@ -20,42 +20,7 @@ static void disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *c
 //    screen.drawRect(area->x1, area->y1, (area->x2 - area->x1 + 1), (area->y2 - area->y1 + 1), color += 50);
 }
 
-static bool touchpad_read(lv_indev_drv_t * indev, lv_indev_data_t * data)
-{
-    static lv_coord_t last_x = 0;
-    static lv_coord_t last_y = 0;
-    tp_dev.scan();
-
-#define touchpad_is_pressed() tp_dev.sta&TP_PRES_DOWN
-
-    /*Save the state and save the pressed coordinate*/
-    data->state = touchpad_is_pressed() ? LV_INDEV_STATE_PR : LV_INDEV_STATE_REL;
-    if(data->state == LV_INDEV_STATE_PR)
-    {
-        //touchpad_get_xy(&last_x, &last_y);
-        last_x = tp_dev.x[0];
-        last_y = tp_dev.y[0];
-    }
-
-    /*Set the coordinates (if released use the last pressed coordinates)*/
-    data->point.x = last_x;
-    data->point.y = last_y;
-
-    return false; /*Return `false` because we are not buffering and no more data to read*/
-}
-
-static void lv_indev_init()
-{
-    /*Initialize the touch pad*/
-    lv_indev_drv_t indev_drv;
-
-    lv_indev_drv_init(&indev_drv);             /*Descriptor of a input device driver*/
-    indev_drv.type = LV_INDEV_TYPE_POINTER;    /*Touch pad is a pointer-like device*/
-    indev_drv.read_cb = touchpad_read;      /*Set your driver function*/
-    lv_indev_drv_register(&indev_drv);         /*Finally register the driver*/
-}
-
-void lv_disp_init()
+void lv_port_disp_init()
 {
 
 #if LV_USE_LOG != 0
@@ -70,6 +35,4 @@ void lv_disp_init()
     disp_drv.flush_cb = disp_flush;
     disp_drv.buffer = &disp_buf;
     lv_disp_drv_register(&disp_drv);
-    
-    lv_indev_init();
 }

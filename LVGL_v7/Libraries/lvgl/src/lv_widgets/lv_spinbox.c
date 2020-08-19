@@ -9,7 +9,7 @@
 #include "lv_spinbox.h"
 
 #if LV_USE_SPINBOX != 0
-#include "../lv_core/lv_debug.h"
+#include "../lv_misc/lv_debug.h"
 #include "../lv_themes/lv_theme.h"
 #include "../lv_misc/lv_math.h"
 #include "../lv_misc/lv_utils.h"
@@ -89,7 +89,7 @@ lv_obj_t * lv_spinbox_create(lv_obj_t * par, const lv_obj_t * copy)
     if(copy == NULL) {
         /* No scrolling will happen here so make the scrollable non-clickable
          * It allows to handle input events in the bg object only.*/
-        lv_obj_set_click(lv_page_get_scrllable(spinbox), false);
+        lv_obj_set_click(lv_page_get_scrollable(spinbox), false);
         lv_textarea_set_one_line(spinbox, true);
         lv_textarea_set_cursor_click_pos(spinbox, true);
         lv_obj_set_width(spinbox, LV_DPI);
@@ -106,7 +106,7 @@ lv_obj_t * lv_spinbox_create(lv_obj_t * par, const lv_obj_t * copy)
         lv_spinbox_set_rollover(spinbox, copy_ext->rollover);
 
         /*Refresh the style with new signal function*/
-        lv_obj_refresh_style(spinbox, LV_STYLE_PROP_ALL);
+        lv_obj_refresh_style(spinbox, LV_OBJ_PART_ALL, LV_STYLE_PROP_ALL);
     }
 
     lv_spinbox_updatevalue(spinbox);
@@ -390,8 +390,10 @@ static lv_res_t lv_spinbox_signal(lv_obj_t * spinbox, lv_signal_t sign, void * p
 
     /* Include the ancient signal function */
     if(sign != LV_SIGNAL_CONTROL) {
+#if LV_USE_GROUP
         res = ancestor_signal(spinbox, sign, param);
         if(res != LV_RES_OK) return res;
+#endif
     }
     if(sign == LV_SIGNAL_GET_TYPE) return lv_obj_handle_get_type_signal(param, LV_OBJX_NAME);
 
@@ -440,7 +442,7 @@ static lv_res_t lv_spinbox_signal(lv_obj_t * spinbox, lv_signal_t sign, void * p
             if(txt[ext->ta.cursor.pos] == '.') {
                 lv_textarea_cursor_left(spinbox);
             }
-            else if(ext->ta.cursor.pos == txt_len) {
+            else if(ext->ta.cursor.pos == (uint32_t)txt_len) {
                 lv_textarea_set_cursor_pos(spinbox, txt_len - 1);
             }
             else if(ext->ta.cursor.pos == 0 && ext->range_min < 0) {
@@ -464,6 +466,7 @@ static lv_res_t lv_spinbox_signal(lv_obj_t * spinbox, lv_signal_t sign, void * p
         }
     }
     else if(sign == LV_SIGNAL_CONTROL) {
+#if LV_USE_GROUP
         lv_indev_type_t indev_type = lv_indev_get_type(lv_indev_get_act());
 
         uint32_t c = *((uint32_t *)param); /*uint32_t because can be UTF-8*/
@@ -488,6 +491,7 @@ static lv_res_t lv_spinbox_signal(lv_obj_t * spinbox, lv_signal_t sign, void * p
         else {
             lv_textarea_add_char(spinbox, c);
         }
+#endif
     }
 
     return res;
